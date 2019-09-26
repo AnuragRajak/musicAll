@@ -10,8 +10,8 @@ public class UserController {
      * Creates /helloworld as an endpoint
      * @return Hello World!!!
      */
-    @GetMapping("/helloworld")
-    public String helloWorld(){
-        return "Hello World!!!";
+    @GetMapping("/hello")
+    public String hello(){
+        return "Hello world!";
     }
 }
