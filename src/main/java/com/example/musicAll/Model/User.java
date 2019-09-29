@@ -21,11 +21,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Long id;
+    //create @column or find another way to specify that username and password can not be null/empty
     private String username;
     private String password;
-//    @ManyToOne()
-//    @JoinColumn(name = "role_id")
-//    private Role role;
+    @ManyToOne()
+    @JoinColumn(name = "role_id")
+    private Role role;
 
 
     public User() {}
