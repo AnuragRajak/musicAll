@@ -30,4 +30,10 @@ public class UserController {
     public User createUser(@RequestBody User newUser) {
         return userService.createUser(newUser);
     }
+
+    @PostMapping("/login")
+    @ResponseBody
+    public User login(@RequestParam("username") String username,@RequestParam("password") String password){
+        return userService.login(username, password);
+    }
 }
