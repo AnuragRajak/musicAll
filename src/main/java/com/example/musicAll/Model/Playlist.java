@@ -24,6 +24,8 @@ public class Playlist {
     @Column(nullable = false, length = 50)
     private String name;
 
+
+
     public Playlist(){}
 
 
