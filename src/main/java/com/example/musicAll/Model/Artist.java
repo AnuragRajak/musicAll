@@ -12,8 +12,7 @@ public class Artist {
     @Column(unique = true, nullable = false, length = 50)
     private String name;
 
-    public Artist(){
-    }
+    public Artist(){}
 
     public long getId() {
         return id;
