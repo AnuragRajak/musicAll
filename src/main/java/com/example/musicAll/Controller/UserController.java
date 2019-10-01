@@ -1,8 +1,10 @@
 package com.example.musicAll.Controller;
 
+import com.example.musicAll.Model.JwtResponse;
 import com.example.musicAll.Model.User;
-import com.example.musicAll.Service.UserServiceImpl;
+import com.example.musicAll.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    UserServiceImpl userService;
+    UserService userService;
     /**
      * Creates /helloworld as an endpoint
      * @return Hello World!!!
@@ -31,8 +33,15 @@ public class UserController {
         return userService.createUser(newUser);
     }
 
-    @PostMapping("/login/{username}/{password}")
-    public User login( @PathVariable String username, @PathVariable String password){
-        return userService.login(username, password);
+//Original Login Endpoint
+//    @PostMapping("/login/{username}/{password}")
+//    public User login( @PathVariable String username, @PathVariable String password){
+//        return userService.login(username, password);
+//    }
+
+    //JWT Login Endpoint
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody String username, String password) {
+        return ResponseEntity.ok(new JwtResponse(userService.login(username, password)));
     }
 }
