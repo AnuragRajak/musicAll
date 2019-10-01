@@ -15,14 +15,13 @@ import java.util.List;
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
 
     @Column(name = "roleType", unique = true)
     private String roleType;
 
     @OneToMany(cascade = CascadeType.ALL,
-            mappedBy = "username", orphanRemoval = true)
+            mappedBy = "role", orphanRemoval = true)
     private List<User> users;
 
     public Role() {}
@@ -50,6 +49,8 @@ public class Role {
     public void setUsers(List<User> users) {
         this.users = users;
     }
+
+
 }
 
 

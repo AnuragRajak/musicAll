@@ -11,10 +11,10 @@ A Spring Boot & Postgres Spotify Clone
   
 ## Application Approach
 
-_Day 1_ | _Day 2_ | _Day 3_ | _Day 4_ |
---- | --- | --- | --- |
-Spring Boot Setup | ERD Design | User & Role - Model, Repository, Controller, & Service | Artist & Song - Model, Repository |
-Profile Configuration | Git Workflow | User, Signup, & Login Endpoints | Spring Security & JWT |
+_Day 1_ | _Day 2_ | _Day 3_ | _Day 4_ | _Day 5_ |
+--- | --- | --- | --- | --- |
+Spring Boot Setup | ERD Design | User & Role - Model, Repository, Controller, & Service | Artist & Song - Model, Repository | JWT Functional - For Signup |
+Profile Configuration | Git Workflow | User, Signup, & Login Endpoints | Spring Security & JWT Started |
 
 ### MusicAll Entity Relationship Diagram
 <img alt = "MusicAll ERD" src="imgs/MusicAll_ERD.png"/><br/>

@@ -5,13 +5,16 @@ import com.example.musicAll.Service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/role")
 public class RoleController {
     @Autowired
     RoleService roleService;
+
+    @GetMapping("/{rolename}")
+    public Role getRole(@PathVariable String rolename) {
+        return roleService.getRole(rolename);
+    }
 
     @PostMapping("/create")
     public Role createRole(@RequestBody Role newRole){

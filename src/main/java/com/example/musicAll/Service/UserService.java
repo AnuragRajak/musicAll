@@ -1,12 +1,19 @@
 package com.example.musicAll.Service;
 
 import com.example.musicAll.Model.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
+    public User getUser(String username);
+
     public List<User> listUsers();
-    public User createUser(User newUser);
+
+    public String createUser(User newUser);
+
     public User login(String username, String password);
+
+
 
 }

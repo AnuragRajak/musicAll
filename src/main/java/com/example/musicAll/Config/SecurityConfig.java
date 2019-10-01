@@ -1,8 +1,8 @@
 package com.example.musicAll.Config;
 
+
 import com.example.musicAll.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,6 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+
     @Bean("encoder")
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
@@ -38,9 +39,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/signup/**", "/login/**").permitAll()
-                .antMatchers("/user/**", "/profile/**", "/course/**").authenticated()
-                .antMatchers("/role/**").hasRole("DBA")
+                .antMatchers("/user/signup", "/user/login").permitAll()
+                .antMatchers("/user/list").authenticated()
+                .antMatchers("/user/list").hasRole("DBA")
                 .and()
                 .httpBasic();
 
@@ -51,12 +52,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     public void configure(AuthenticationManagerBuilder auth) throws Exception{
         // Uses a default bCrypt password encoder. Not defined by your jwt.secret token.
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
-        auth.inMemoryAuthentication().withUser("test").password(encoder.encode("test")).roles("ADMIN");
-        auth.inMemoryAuthentication().withUser("dba").password(encoder.encode("dba")).roles("DBA");
+        auth.inMemoryAuthentication().withUser("test").password(encoder.encode("test")).roles("USER");
+        auth.inMemoryAuthentication().withUser("dba").password(encoder.encode("dba")).roles("ADMIN");
     }
 
 }
-
-
-
