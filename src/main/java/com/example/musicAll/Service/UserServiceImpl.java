@@ -7,6 +7,7 @@ import com.example.musicAll.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -75,9 +76,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(String username, String password){
-        return userRepository.login(username, password);
+    public String login(User user) {
+        User returningUser = userRepository.findByUsername(user.getUsername());
+        if(returningUser != null && bCryptPasswordEncoder.matches(user.getPassword(), returningUser.getPassword())){
+            UserDetails userDetails = loadUserByUsername(returningUser.getUsername());
+            return jwtUtil.generateToken(userDetails);
+        }
+        return null;
     }
 
+    @Override
+    public HttpStatus deleteUser(Long userId){
+        userRepository.deleteById(userId);
+        return HttpStatus.valueOf(200);
+    }
 
 }
