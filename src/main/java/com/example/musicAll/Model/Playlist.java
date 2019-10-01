@@ -24,10 +24,6 @@ public class Playlist {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @ManyToMany()
-    @JoinColumn(name = "songs_artists_id")
-    private Songs_Artists songs_artists;
-
     public Playlist(){}
 
 
