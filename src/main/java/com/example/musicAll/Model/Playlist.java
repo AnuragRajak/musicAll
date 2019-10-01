@@ -13,7 +13,7 @@ import java.util.List;
 //        property = "id")
 
 @Entity
-@Table(name="songs_artists")
+@Table(name="playlists")
 public class Playlist {
 
     @Id

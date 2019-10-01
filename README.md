@@ -13,7 +13,7 @@ A Spring Boot & Postgres Spotify Clone
 
 _Day 1_ | _Day 2_ | _Day 3_ | _Day 4_ |
 --- | --- | --- | --- |
-Spring Boot Setup | ERD Design | User & Role - Model, Repository, Controller, & Service | Artist & Song - Model, Repository, Controller, & Service |
+Spring Boot Setup | ERD Design | User & Role - Model, Repository, Controller, & Service | Artist & Song - Model, Repository |
 Profile Configuration | Git Workflow | User, Signup, & Login Endpoints | Spring Security & JWT |
 
 ### MusicAll Entity Relationship Diagram
