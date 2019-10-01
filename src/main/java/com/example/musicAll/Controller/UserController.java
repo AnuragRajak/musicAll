@@ -33,8 +33,14 @@ public class UserController {
         return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
 
-    @PostMapping("/login/{username}/{password}")
-    public User login( @PathVariable String username, @PathVariable String password){
-        return userService.login(username, password);
+//LOGIN ENDPOINT WITHOUT JWT/SPRING SECURITY
+//    @PostMapping("/login/{username}/{password}")
+//    public User login( @PathVariable String username, @PathVariable String password){
+//        return userService.login(username, password);
+//    }
+
+    //JWT Login Endpoint
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody User user) {     return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 }

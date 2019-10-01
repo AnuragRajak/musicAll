@@ -12,8 +12,10 @@ public interface UserService extends UserDetailsService {
 
     public String createUser(User newUser);
 
-    public User login(String username, String password);
+//Original Login
+//    public User login(String username, String password);
 
-
+    //JWT Login
+    public String login(User user);
 
 }
