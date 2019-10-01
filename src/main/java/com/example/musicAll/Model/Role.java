@@ -25,7 +25,7 @@ public class Role {
             mappedBy = "username", orphanRemoval = true)
     private List<User> users;
 
-    public Role() { }
+    public Role() {}
 
     public long getId() {
         return id;
