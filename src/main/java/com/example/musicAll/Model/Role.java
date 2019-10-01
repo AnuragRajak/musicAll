@@ -24,7 +24,7 @@ public class Role {
             mappedBy = "role", orphanRemoval = true)
     private List<User> users;
 
-    public Role() {}
+    public Role() { }
 
     public long getId() {
         return id;
@@ -52,5 +52,6 @@ public class Role {
 
 
 }
+
 
 
