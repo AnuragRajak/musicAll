@@ -15,7 +15,8 @@ public interface UserService extends UserDetailsService {
 
     public String login(String username, String password);
 
-    public int getRoleId();
+    //auth needs to obtain role of each user somehow
+    //public int getRoleId();
 
 //    public List<User> listUsers() {
 //        return userRepository.findAll();
