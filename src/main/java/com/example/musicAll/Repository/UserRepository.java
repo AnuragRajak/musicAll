@@ -11,4 +11,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     //Select from user table a username = the username passed through the URL and password passed through URL
     @Query("FROM User WHERE username = :username and password = :password")
     User login(String username, String password);
+
+    User findByUsername(String username);
 }
