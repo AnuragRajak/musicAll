@@ -14,7 +14,7 @@ public class SongController {
     public Iterable<Song> listAllSongs(){
         return songService.listAllSongs();
     }
-    
+
     @PostMapping("/addSongToDB")
     public Song addSong(@RequestBody Song newSong) {
         return songService.addSong(newSong);

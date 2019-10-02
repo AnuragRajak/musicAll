@@ -18,28 +18,28 @@ public class Playlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private long id;
+    @Column(name = "playlistId")
+    private long playlistId;
 
     @Column(nullable = false, length = 50)
     private String name;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "song_id", nullable = true)
+    @JoinColumn(name = "songId", nullable = true)
     private Song song;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id", nullable = true)
+    @JoinColumn(name = "userId", nullable = true)
     private User user;
 
     public Playlist(){}
 
-    public long getId() {
-        return id;
+    public long getPlaylistId() {
+        return playlistId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPlaylistId(long id) {
+        this.playlistId = playlistId;
     }
 
     public String getName() {

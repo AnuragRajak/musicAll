@@ -18,21 +18,19 @@ public class Song {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "songId")
+    private long songId;
 
-    private long id;
-
-    //removed unnecessary unique attribute on title
     @Column(nullable = true, length = 50)
     private String title;
 
-    //removed unnecessary unique attribute on genre
     @Column(nullable = true, length = 50)
     private String genre;
 
     private Time length;
 
     @ManyToOne()
-    @JoinColumn(name = "artist_id")
+    @JoinColumn(name = "artistId")
     private Artist artist;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "song")
@@ -40,12 +38,12 @@ public class Song {
 
     public Song() {}
 
-    public long getId() {
-        return id;
+    public long getSongId() {
+        return songId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setSongId(long id) {
+        this.songId = songId;
     }
 
     public String getTitle() {

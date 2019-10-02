@@ -19,8 +19,8 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    private Long id;
+    @Column(name = "userId")
+    private Long userId;
     //create @column or find another way to specify that username and password can not be null/empty
     private String username;
     private String password;
@@ -29,17 +29,17 @@ public class User {
     private Role role;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "playlist_id", nullable = true)
+    @JoinColumn(name = "playlistId", nullable = true)
     private Playlist playlist;
 
     public User() {}
 
-    public Long getId() {
-        return id;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getUsername() {
@@ -62,11 +62,4 @@ public class User {
 
     public void setRole(Role role) { this.role = role; }
 
-    public Playlist getPlaylist() {
-        return playlist;
-    }
-
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
-    }
 }

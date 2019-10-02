@@ -2,11 +2,14 @@ package com.example.musicAll.Service;
 
 import com.example.musicAll.Config.JwtUtil;
 import com.example.musicAll.Model.Role;
+import com.example.musicAll.Model.Song;
 import com.example.musicAll.Model.User;
+import com.example.musicAll.Repository.PlaylistRepository;
+import com.example.musicAll.Repository.SongRepository;
 import com.example.musicAll.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.jpa.repository.Query;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -22,6 +25,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PlaylistRepository playlistRepository;
+
+    @Autowired
+    SongRepository songRepository;
 
     @Autowired
     RoleService roleService;
@@ -65,7 +74,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String createUser(User newUser){
 
-        Role userRole = roleService.getRole(newUser.getUserRole().getRoleType());
+        Role userRole = roleService.getRole("ROLE_USER");
         newUser.setRole(userRole);
         newUser.setPassword(bCryptPasswordEncoder.encode(newUser.getPassword()));
         if(userRepository.save(newUser) != null){
@@ -76,6 +85,7 @@ public class UserServiceImpl implements UserService {
     }
 
 //Original Login Endpoint
+    //needed this: import org.springframework.data.jpa.repository.Query;
 //    @Override
 //    public User login(String username, String password){
 //        return userRepository.login(username, password);
@@ -100,6 +110,7 @@ public class UserServiceImpl implements UserService {
         userRepository.deleteById(userId);
         return HttpStatus.valueOf(200);
     }
+
 
 
 }

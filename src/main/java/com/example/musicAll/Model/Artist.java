@@ -7,20 +7,20 @@ import javax.persistence.*;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "artist_id")
-    private long artist_id;
+    @Column(name = "artistId")
+    private long artistId;
 
     @Column(unique = true, nullable = false, length = 50)
     private String name;
 
     public Artist(){}
 
-    public long getArtist_id() {
-        return artist_id;
+    public long getArtistId() {
+        return artistId;
     }
 
-    public void setArtist_id(long artist_id) {
-        this.artist_id = artist_id;
+    public void setArtist_id(long artistId) {
+        this.artistId = artistId;
     }
 
     public String getName() {

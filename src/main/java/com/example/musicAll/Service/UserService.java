@@ -1,5 +1,6 @@
 package com.example.musicAll.Service;
 
+import com.example.musicAll.Model.Song;
 import com.example.musicAll.Model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
+    //remove redundant public?
     public User getUser(String username);
 
     public List<User> listUsers();
