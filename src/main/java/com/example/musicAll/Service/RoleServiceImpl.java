@@ -1,7 +1,5 @@
 package com.example.musicAll.Service;
 
-
-
 import com.example.musicAll.Model.Role;
 import com.example.musicAll.Repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +29,6 @@ public class RoleServiceImpl implements RoleService {
     }
 
 
-//    Mapping error, can't write to Json, potential issue with bidirectional
     @Override
     public List<Role> listRoles() {
         return roleRepository.findAll();
