@@ -38,7 +38,7 @@ public class UserControllerSignupTest {
         RequestBuilder requestBuilder = MockMvcRequestBuilders
                 .post("/user/signup")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(createNewUserInJson("testSignupUser", "testingSignup"));
+                .content(createNewUserInJson("testSignupUser", "testingSignup", "ROLE_USER"));
 
         when(userServiceImpl.createUser(any())).thenReturn("signupToken123");
 
@@ -51,7 +51,7 @@ public class UserControllerSignupTest {
         System.out.println(result.getResponse().getContentAsString());
     }
 
-    private static String createNewUserInJson(String name, String password) {
+    private static String createNewUserInJson(String name, String password, String role) {
         return "{  \"name\" : \"" + name + "\"," +
                 "\"password\" : \"" + password + "\"}";
     }

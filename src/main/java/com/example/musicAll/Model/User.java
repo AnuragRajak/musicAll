@@ -9,7 +9,7 @@ import java.util.List;
 
 //Says we want to create an API
 //@JsonIdentityInfo(
-//        //This will createa a unique primary key every time we create a new user
+//        //This will create a unique primary key every time we create a new user
 //        generator = ObjectIdGenerators.PropertyGenerator.class,
 //        property = "id")
 
@@ -29,7 +29,7 @@ public class User {
     private Role role;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "playlist_id", nullable = false)
+    @JoinColumn(name = "playlist_id", nullable = true)
     private Playlist playlist;
 
     public User() {}

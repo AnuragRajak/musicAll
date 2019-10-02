@@ -13,14 +13,14 @@ A Spring Boot & Postgres Spotify Clone
 
 _Day 1_ | _Day 2_ | _Day 3_ | _Day 4_ | _Day 5_ | _Day 6_ |
 --- | --- | --- | --- | --- | --- |
-Spring Boot Setup | ERD Brainstorm & Designed | Create Role Endpoint | Playlist, Artist & Song - Model, Repository | JWT Functional - Signup & Login | Signup & Login Testing
-Profile Configuration | Git Workflow Implementation | User, Signup, & Login Endpoints | Spring Security & JWT Started | Relational Mapping | 
+Spring Boot Setup | ERD Brainstorm & Designed | Create Role Endpoint | Playlist, Artist & Song - Model, Repository | JWT Functional - Signup & Login | Signup & Login Testing Started
+Profile Configuration | Git Workflow Implementation | User, Signup, & Login Endpoints | Spring Security & JWT Started | Relational Mapping | addSong Endpoint through Postman
     |     | User & Role - Model, Repository, Controller, & Service | | | Delete User Functionality |
     |     
     |     |     |     |  | ERD Design Update |     
         
 ### MusicAll Entity Relationship Diagram
-<img alt = "MusicAll ERD" src="imgs/MusicAll_ERD.png"/><br/>
+<img alt = "MusicAll ERD" src="imgs/MusicAll_ERD_final.png"/><br/>
 
 ### Models Information
 - musicAll has five data models: `User`,`Role`, `Song`, `Artist`, `Songs_Artists` & `Playlist`.
