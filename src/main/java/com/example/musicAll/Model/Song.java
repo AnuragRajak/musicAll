@@ -32,6 +32,14 @@ public class Song {
     @ManyToOne()
     @JoinColumn(name = "artist_id")
     private Artist artist;
+//
+//    @ManyToOne(cascade = {CascadeType.DETACH,
+//            CascadeType.MERGE, CascadeType.REFRESH})
+//    @JoinColumn(name = "playlist_id", nullable = false)
+//    private Playlist playlist;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "song")
+    private List<Playlist> playlists;
 
 
     public Song() {}
@@ -75,6 +83,5 @@ public class Song {
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
-
 
 }
