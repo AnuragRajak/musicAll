@@ -28,6 +28,10 @@ public class User {
     @JoinColumn(name = "role_id")
     private Role role;
 
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "playlist_id", nullable = false)
+    private Playlist playlist;
+
     public User() {}
 
     public Long getId() {
@@ -58,4 +62,11 @@ public class User {
 
     public void setRole(Role role) { this.role = role; }
 
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
 }
