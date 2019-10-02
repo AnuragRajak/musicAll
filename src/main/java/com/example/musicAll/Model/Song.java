@@ -21,10 +21,12 @@ public class Song {
 
     private long id;
 
-    @Column(unique = true, nullable = true, length = 50)
+    //removed unnecessary unique attribute on title
+    @Column(nullable = true, length = 50)
     private String title;
 
-    @Column(unique = true, nullable = true, length = 50)
+    //removed unnecessary unique attribute on genre
+    @Column(nullable = true, length = 50)
     private String genre;
 
     private Time length;
