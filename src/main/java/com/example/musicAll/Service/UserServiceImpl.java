@@ -7,6 +7,7 @@ import com.example.musicAll.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -83,12 +84,22 @@ public class UserServiceImpl implements UserService {
     //JWT Login
     @Override
     public String login(User user) {
-        User newUser = userRepository.findByUsername(user.getUsername());
-        if(newUser != null && bCryptPasswordEncoder.matches(user.getPassword(), newUser.getPassword())){
-            UserDetails userDetails = loadUserByUsername(newUser.getUsername());
+
+        User returningUser = userRepository.findByUsername(user.getUsername());
+        if(returningUser != null && bCryptPasswordEncoder.matches(user.getPassword(), returningUser.getPassword())){
+            UserDetails userDetails = loadUserByUsername(returningUser.getUsername());
+
             return jwtUtil.generateToken(userDetails);
         }
         return null;
     }
+
+
+    @Override
+    public HttpStatus deleteUser(Long userId){
+        userRepository.deleteById(userId);
+        return HttpStatus.valueOf(200);
+    }
+
 
 }
