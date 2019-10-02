@@ -75,20 +75,31 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+//Original Login Endpoint
+//    @Override
+//    public User login(String username, String password){
+//        return userRepository.login(username, password);
+//    }
+
+    //JWT Login
     @Override
     public String login(User user) {
+
         User returningUser = userRepository.findByUsername(user.getUsername());
         if(returningUser != null && bCryptPasswordEncoder.matches(user.getPassword(), returningUser.getPassword())){
             UserDetails userDetails = loadUserByUsername(returningUser.getUsername());
+
             return jwtUtil.generateToken(userDetails);
         }
         return null;
     }
+
 
     @Override
     public HttpStatus deleteUser(Long userId){
         userRepository.deleteById(userId);
         return HttpStatus.valueOf(200);
     }
+
 
 }

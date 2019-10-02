@@ -33,15 +33,16 @@ public class UserController {
     public ResponseEntity<?> createUser(@RequestBody User newUser) {
         return ResponseEntity.ok(new JwtResponse(userService.createUser(newUser)));
     }
-//      Old Login Method
+  
+//LOGIN ENDPOINT WITHOUT JWT/SPRING SECURITY
 //    @PostMapping("/login/{username}/{password}")
 //    public User login( @PathVariable String username, @PathVariable String password){
 //        return userService.login(username, password);
 //    }
 
+    //JWT Login Endpoint
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody User user) {
-        return ResponseEntity.ok(new JwtResponse(userService.login(user)));
+    public ResponseEntity<?> login(@RequestBody User user) {     return ResponseEntity.ok(new JwtResponse(userService.login(user)));
     }
 
     //Returns OK

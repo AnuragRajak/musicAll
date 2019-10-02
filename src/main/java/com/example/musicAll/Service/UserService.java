@@ -13,10 +13,13 @@ public interface UserService extends UserDetailsService {
 
     public String createUser(User newUser);
 
+
+//Original Login
 //    public User login(String username, String password);
 
+    //JWT Login
+    public String login(User user);
 
-    String login(User user);
 
     HttpStatus deleteUser(Long userId);
 }
