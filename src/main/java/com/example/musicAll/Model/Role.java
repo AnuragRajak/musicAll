@@ -17,7 +17,7 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "roleType", unique = true)
+    @Column(name = "roleType")
     private String roleType;
 
     @OneToMany(cascade = CascadeType.ALL,

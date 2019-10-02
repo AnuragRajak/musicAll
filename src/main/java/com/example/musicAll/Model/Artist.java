@@ -9,7 +9,7 @@ public class Artist {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(unique = true, nullable = true, length = 50)
     private String name;
 
     public Artist(){}

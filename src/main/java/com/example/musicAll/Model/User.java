@@ -29,7 +29,7 @@ public class User {
     private Role role;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "playlist_id", nullable = false)
+    @JoinColumn(name = "playlist_id", nullable = true)
     private Playlist playlist;
 
     public User() {}
