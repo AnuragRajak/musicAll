@@ -25,11 +25,11 @@ public class Playlist {
     private String name;
 
     @ManyToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "song_id", nullable = false)
+    @JoinColumn(name = "song_id", nullable = true)
     private Song song;
 
     @OneToOne(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
     public Playlist(){}
