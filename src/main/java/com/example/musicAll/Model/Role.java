@@ -1,6 +1,7 @@
 package com.example.musicAll.Model;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
@@ -20,6 +21,7 @@ public class Role {
     @Column(name = "roleType")
     private String roleType;
 
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,
             mappedBy = "role", orphanRemoval = true)
     private List<User> users;

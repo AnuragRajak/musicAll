@@ -7,6 +7,8 @@ import com.example.musicAll.Repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 @Service
 public class RoleServiceImpl implements RoleService {
@@ -30,8 +32,9 @@ public class RoleServiceImpl implements RoleService {
 
 
 //    Mapping error, can't write to Json, potential issue with bidirectional
-//    public List<Role> listRoles() {
-//        return roleRepository.findAll();
-//    }
+    @Override
+    public List<Role> listRoles() {
+        return roleRepository.findAll();
+    }
 }
 
