@@ -15,11 +15,11 @@ public class Playlist {
     @Column(nullable = false, length = 50)
     private String name;
 
-    @ManyToOne(cascade = {CascadeType.ALL})
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "song_id", nullable = true)
     private Song song;
 
-    @OneToOne(cascade = {CascadeType.ALL})
+    @OneToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
@@ -47,5 +47,13 @@ public class Playlist {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Song getSong() {
+        return song;
+    }
+
+    public void setSong(Song song) {
+        this.song = song;
     }
 }
