@@ -8,7 +8,8 @@ import java.util.List;
 public class Artist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "artist_id")
+    private long artist_id;
 
     @Column(unique = true, nullable = true, length = 50)
     private String name;
@@ -19,12 +20,12 @@ public class Artist {
 
     public Artist(){}
 
-    public long getId() {
-        return id;
+    public long getArtist_id() {
+        return artist_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setArtist_id(long artist_id) {
+        this.artist_id = artist_id;
     }
 
     public String getName() {

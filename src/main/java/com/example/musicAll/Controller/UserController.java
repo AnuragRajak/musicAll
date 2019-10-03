@@ -57,9 +57,11 @@ public class UserController {
         return userService.deleteUser(userId);
     }
 
+
     @PostMapping("/playlist/create")
     public Playlist createPlaylist(@RequestBody Playlist newPlaylist){
         return playlistService.createPlaylist(newPlaylist);
     }
+
 
 }
