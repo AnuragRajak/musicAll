@@ -5,7 +5,8 @@ import com.example.musicAll.Repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Time;
+import java.util.List;
+
 
 @Service
 public class SongServiceImpl implements SongService {
@@ -16,12 +17,14 @@ public class SongServiceImpl implements SongService {
     SongService songService;
 
     @Override
-    public Song addSong(Song newSong) {
+    public Song addSongToDB(Song newSong) {
+
         return songRepository.save(newSong);
     }
 
     @Override
-    public Iterable<Song> listAllSongs(){
+    public List<Song> listAllSongs(){
         return songRepository.findAll();
     }
 }
+

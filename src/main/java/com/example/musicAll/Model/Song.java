@@ -1,16 +1,9 @@
 package com.example.musicAll.Model;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 import javax.persistence.*;
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.List;
 
-//@JsonIdentityInfo(
-//        generator = ObjectIdGenerators.PropertyGenerator.class,
-//        property = "id")
 
 @Entity
 @Table(name="songs")
@@ -21,17 +14,17 @@ public class Song {
 
     private long id;
 
-    //removed unnecessary unique attribute on title
-    @Column(nullable = true, length = 50)
+
+    @Column(nullable = false, length = 50)
     private String title;
 
-    //removed unnecessary unique attribute on genre
-    @Column(nullable = true, length = 50)
+    @Column(nullable = false, length = 50)
+
     private String genre;
 
     private Time length;
 
-    @ManyToOne()
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "artist_id")
     private Artist artist;
 
