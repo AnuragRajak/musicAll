@@ -14,15 +14,15 @@ public class Song {
 
     private long id;
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String title;
 
-    @Column(unique = true, nullable = false, length = 50)
+    @Column(nullable = false, length = 50)
     private String genre;
 
     private Time length;
 
-    @ManyToOne()
+    @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "artist_id")
     private Artist artist;
 //

@@ -1,6 +1,7 @@
 package com.example.musicAll.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "artists")
@@ -11,6 +12,10 @@ public class Artist {
 
     @Column(unique = true, nullable = true, length = 50)
     private String name;
+
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "artist", orphanRemoval = true)
+    private List<Song> songs;
 
     public Artist(){}
 
