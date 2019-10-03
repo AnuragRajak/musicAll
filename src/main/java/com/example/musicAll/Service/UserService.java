@@ -20,6 +20,6 @@ public interface UserService extends UserDetailsService {
     //JWT Login
     public String login(User user);
 
-
     HttpStatus deleteUser(Long userId);
+
 }

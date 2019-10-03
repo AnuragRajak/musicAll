@@ -14,10 +14,12 @@ public class Song {
 
     private long id;
 
+
     @Column(nullable = false, length = 50)
     private String title;
 
     @Column(nullable = false, length = 50)
+
     private String genre;
 
     private Time length;
@@ -25,15 +27,9 @@ public class Song {
     @ManyToOne(cascade = {CascadeType.MERGE})
     @JoinColumn(name = "artist_id")
     private Artist artist;
-//
-//    @ManyToOne(cascade = {CascadeType.DETACH,
-//            CascadeType.MERGE, CascadeType.REFRESH})
-//    @JoinColumn(name = "playlist_id", nullable = false)
-//    private Playlist playlist;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "song")
     private List<Playlist> playlists;
-
 
     public Song() {}
 
