@@ -1,7 +1,10 @@
 package com.example.musicAll.Controller;
 
 import com.example.musicAll.Config.JwtResponse;
+import com.example.musicAll.Model.Playlist;
 import com.example.musicAll.Model.User;
+import com.example.musicAll.Service.PlaylistService;
+import com.example.musicAll.Service.PlaylistServiceImpl;
 import com.example.musicAll.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,9 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserServiceImpl userService;
+
+    @Autowired
+    PlaylistServiceImpl playlistService;
     /**
      * Creates /helloworld as an endpoint
      * @return Hello World!!!
@@ -49,6 +55,11 @@ public class UserController {
     @DeleteMapping("/delete/{userId}")
     public HttpStatus deleteUser(@PathVariable Long userId){
         return userService.deleteUser(userId);
+    }
+
+    @PostMapping("/playlist/create")
+    public Playlist createPlaylist(@RequestBody Playlist newPlaylist){
+        return playlistService.createPlaylist(newPlaylist);
     }
 
 }

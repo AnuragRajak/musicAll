@@ -31,7 +31,8 @@ public class Song {
 //    @JoinColumn(name = "playlist_id", nullable = false)
 //    private Playlist playlist;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "song")
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "song", orphanRemoval = true)
     private List<Playlist> playlists;
 
 
